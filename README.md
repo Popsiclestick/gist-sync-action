@@ -15,6 +15,8 @@ jobs:
     name: gist-sync
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
       - uses: popsiclestick/gist-sync-action@v1.0.0
         id: sync
         with:
