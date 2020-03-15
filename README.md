@@ -15,7 +15,7 @@ jobs:
     name: gist-sync
     runs-on: ubuntu-latest
     steps:
-      - uses: popsiclestick/gist-sync-action@v1
+      - uses: popsiclestick/gist-sync-action@v1.0.0
         id: sync
         with:
           auth: ${{ secrets.GIST_TOKEN }}
