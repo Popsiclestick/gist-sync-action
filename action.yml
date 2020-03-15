@@ -1,0 +1,31 @@
+name: "gist-sync"
+author: "Michael Salsone"
+description: "Sync a Gist from a Github file"
+inputs:
+  auth:
+    description: "Auth token with gist permissions"
+    required: true
+  gist_url:
+    description: "URL of the gist"
+    required: true
+  gist_title:
+    description: "Title of the gist"
+    required: true
+  gist_description:
+    description: "Description of the gist"
+    required: true
+  github_file:
+    description: "The Filename with the contents we want to mirror"
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.auth }}
+    - ${{ inputs.gist_url }}
+    - ${{ inputs.gist_title }}
+    - ${{ inputs.gist_description }}
+    - ${{ inputs.github_file }}
+branding:
+  icon: 'code'
+  color: 'green'
