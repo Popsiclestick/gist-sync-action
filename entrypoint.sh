@@ -15,9 +15,9 @@ gist_endpoint=$gist_api$gist_id
 title=$(echo $3 | sed 's/\"/\\"/g')
 description=$(echo $4 | sed 's/\"/\\"/g')
 content=$(sed -E ':a;N;$!ba;s/\r{0,1}\n/\\n/g' $5 | sed 's/\"/\\"/g')
-
+echo '{"description": "'"$description"'", "files": {"'"$title"'": {"content": "'"$content"'"}}}' > postContent.txt
 
 curl -s -X PATCH \
     -H "Content-Type: application/json" \
     -H "Authorization: token $auth_token" \
-    -d '{"description": "'"$description"'", "files": {"'"$title"'": {"content": "'"$content"'"}}}' $gist_endpoint
+    -d @postContent.txt $gist_endpoint \
