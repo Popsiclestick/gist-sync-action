@@ -17,7 +17,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - uses: popsiclestick/gist-sync-action@v1.0.0
+      - uses: popsiclestick/gist-sync-action@v1.1.0
         id: sync
         with:
           auth: ${{ secrets.GIST_TOKEN }}
